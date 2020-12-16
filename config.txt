@@ -1,0 +1,33 @@
+device\qcom\msm8909\msm8909.mk:
+PRODUCT_PACKAGES += leds
+
+device\qcom\sepolicy\msm8909\file.te:
+type aw9523b_file, sysfs_type, file_type, mlstrustedobject;
+
+device\qcom\sepolicy\msm8909\file_contexts:
+# for aw9523b files
+/sys/bus/i2c/drivers/aw9523b_leds/switch            u:object_r:aw9523b_file:s0
+/sys/bus/i2c/drivers/aw9523b_leds/trigger           u:object_r:aw9523b_file:s0
+/sys/bus/i2c/drivers/aw9523b_leds/system_status     u:object_r:aw9523b_file:s0
+/sys/devices/soc.0/78b7000.i2c/i2c-3/3-005b/leds/aw9523b_led[0-9]_[RGB]/brightness u:object_r:aw9523b_file:s0
+/sys/devices/soc.0/78b9000.i2c/i2c-5/5-005b/leds/aw9523b_led[0-9]_[RGB]/brightness u:object_r:aw9523b_file:s0
+
+device\qcom\sepolicy\msm8909\platform_app.te:
+allow platform_app aw9523b_file:file rw_file_perms;
+
+device\qcom\sepolicy\msm8909\priv_app.te:
+allow priv_app aw9523b_file:file rw_file_perms;
+
+device\qcom\sepolicy\msm8909\system_app.te:
+allow system_app aw9523b_file:file rw_file_perms;
+
+device\qcom\sepolicy\msm8909\untrusted_app.te:
+allow untrusted_app aw9523b_file:file rw_file_perms;
+
+system\core\rootdir\init.rc:
+on boot
+    chown system system /sys/class/leds/aw9523b_led[0-9]_[RGB]/brightness
+    chmod 0666 /sys/class/leds/aw9523b_led[0-9]_[RGB]/brightness
+
+on property:sys.boot_completed=1
+    write /sys/bus/i2c/drivers/aw9523b_leds/system_status "boot_completed"

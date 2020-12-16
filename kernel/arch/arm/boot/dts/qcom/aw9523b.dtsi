@@ -1,0 +1,204 @@
+&i2c_3 {
+	aw9523b_leds_1@5B {
+		compatible = "awinic,aw9523b_leds_3_5B";
+		reg = <0x5B>;
+		awinic,reset-gpio = <&msm_gpio 26 0x0>;
+		awinic,max-current = <2>;	/* 0:40mA, 1:30mA, 2:20mA, 3:10mA */
+		status = "okay";
+		
+		/* led1 RGB*/
+		awinic,p1_2 {
+			awinic,name = "aw9523b_led1_R";
+			awinic,pin = <0x12>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x22>;
+			trigger = "loop1s,battery-charging";
+			/*default_trigger = "usb-online";*/
+		};
+		awinic,p1_1 {
+			awinic,name = "aw9523b_led1_G";
+			awinic,pin = <0x11>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x21>;
+			trigger = "loop3s,battery-full";
+		};
+		awinic,p1_0 {
+			awinic,name = "aw9523b_led1_B";
+			awinic,pin = <0x10>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x20>;
+			trigger = "loop5s,breath";
+		};
+		
+		/* led2 RGB*/
+		awinic,p0_1 {
+			awinic,name = "aw9523b_led2_R";
+			awinic,pin = <0x01>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x25>;
+			trigger = "loop2s,battery-charging";
+		};
+		awinic,p0_0 {
+			awinic,name = "aw9523b_led2_G";
+			awinic,pin = <0x00>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x24>;
+			trigger = "loop4s,battery-full";
+		};
+		awinic,p1_3 {
+			awinic,name = "aw9523b_led2_B";
+			awinic,pin = <0x13>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x23>;
+			trigger = "loop6s,breath";
+		};
+		
+		/* led3 RGB*/
+		awinic,p0_4 {
+			awinic,name = "aw9523b_led3_R";
+			awinic,pin = <0x04>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x28>;
+			trigger = "loop5s,battery-charging";
+		};
+		awinic,p0_3 {
+			awinic,name = "aw9523b_led3_G";
+			awinic,pin = <0x03>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x27>;
+			trigger = "loop1s,battery-full";
+		};
+		awinic,p0_2 {
+			awinic,name = "aw9523b_led3_B";
+			awinic,pin = <0x02>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x26>;
+			trigger = "loop3s,breath";
+		};
+		
+		/* led4 RGB*/
+		awinic,p0_7 {
+			awinic,name = "aw9523b_led4_R";
+			awinic,pin = <0x07>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x2b>;
+			trigger = "loop6s,battery-charging";
+		};
+		awinic,p0_6 {
+			awinic,name = "aw9523b_led4_G";
+			awinic,pin = <0x06>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x2a>;
+			trigger = "loop2s,battery-full";
+		};
+		awinic,p0_5 {
+			awinic,name = "aw9523b_led4_B";
+			awinic,pin = <0x05>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x29>;
+			trigger = "loop4s,breath";
+		};
+		
+		/* led5 RGB*/
+		awinic,p1_6 {
+			awinic,name = "aw9523b_led5_R";
+			awinic,pin = <0x16>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x2e>;
+			trigger = "loop1s,battery-charging";
+		};
+		awinic,p1_5 {
+			awinic,name = "aw9523b_led5_G";
+			awinic,pin = <0x15>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x2d>;
+			trigger = "loop3s,battery-full";
+		};
+		awinic,p1_4 {
+			awinic,name = "aw9523b_led5_B";
+			awinic,pin = <0x14>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x2c>;
+			trigger = "loop5s,breath";
+		};
+	};
+};
+
+&i2c_5 {
+	aw9523b_leds_2@5B {
+		compatible = "awinic,aw9523b_leds_5_5B";
+		reg = <0x5B>;
+		awinic,reset-gpio = <&msm_gpio 26 0x0>;
+		awinic,max-current = <2>;	/* 0:40mA, 1:30mA, 2:20mA, 3:10mA */
+		status = "okay";
+		
+		/* led6 RGB*/
+		awinic,p1_2 {
+			awinic,name = "aw9523b_led6_R";
+			awinic,pin = <0x12>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x22>;
+			trigger = "loop2s,battery-charging";
+		};
+		awinic,p1_1 {
+			awinic,name = "aw9523b_led6_G";
+			awinic,pin = <0x11>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x21>;
+			trigger = "loop4s,battery-full";
+		};
+		awinic,p1_0 {
+			awinic,name = "aw9523b_led6_B";
+			awinic,pin = <0x10>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x20>;
+			trigger = "loop6s,breath";
+		};
+		
+		/* led7 RGB*/
+		awinic,p0_1 {
+			awinic,name = "aw9523b_led7_R";
+			awinic,pin = <0x01>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x25>;
+			trigger = "loop5s,battery-charging";
+		};
+		awinic,p0_0 {
+			awinic,name = "aw9523b_led7_G";
+			awinic,pin = <0x00>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x24>;
+			trigger = "loop1s,battery-full";
+		};
+		awinic,p1_3 {
+			awinic,name = "aw9523b_led7_B";
+			awinic,pin = <0x13>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x23>;
+			trigger = "loop3s,breath";
+		};
+		
+		/* led8 RGB*/
+		awinic,p0_4 {
+			awinic,name = "aw9523b_led8_R";
+			awinic,pin = <0x04>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x28>;
+			trigger = "loop6s,battery-charging";
+		};
+		awinic,p0_3 {
+			awinic,name = "aw9523b_led8_G";
+			awinic,pin = <0x03>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x27>;
+			trigger = "loop2s,battery-full";
+		};
+		awinic,p0_2 {
+			awinic,name = "aw9523b_led8_B";
+			awinic,pin = <0x02>;
+			awinic,max-brightness = <255>;
+			awinic,brightness_reg = <0x26>;
+			trigger = "loop4s,breath";
+		};
+	};
+};
